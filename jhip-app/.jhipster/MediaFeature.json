@@ -1,0 +1,43 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "media",
+            "otherEntityName": "media",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "mediaFeatureFile",
+            "otherEntityName": "file",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "mediaFeature"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "mediaType",
+            "fieldType": "MediaType",
+            "fieldValues": "DOCUMENTS,VIDEO,AUDIO,IMAGES"
+        },
+        {
+            "fieldName": "mediaDesc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "dateModified",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20170116092220",
+    "entityTableName": "media_feature",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

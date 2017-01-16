@@ -1,0 +1,76 @@
+<div>
+    <h2>Events</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="event.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Event
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Event Name</span></th>
+                    <th><span>Event Summary</span></th>
+                    <th><span>Address 1</span></th>
+                    <th><span>Address 2</span></th>
+                    <th><span>City</span></th>
+                    <th><span>State</span></th>
+                    <th><span>Postal Code</span></th>
+                    <th><span>Start Date</span></th>
+                    <th><span>End Date</span></th>
+                    <th><span>Calendar</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="event in vm.events track by event.id">
+                    <td><a ui-sref="event-detail({id:event.id})">{{event.id}}</a></td>
+                    <td>{{event.eventName}}</td>
+                    <td>{{event.eventSummary}}</td>
+                    <td>{{event.address1}}</td>
+                    <td>{{event.address2}}</td>
+                    <td>{{event.city}}</td>
+                    <td>{{event.state}}</td>
+                    <td>{{event.postalCode}}</td>
+                    <td>{{event.startDate | date:'medium'}}</td>
+                    <td>{{event.endDate | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="calendar-detail({id:event.calendar.id})">{{event.calendar.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="event-detail({id:event.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="event.edit({id:event.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="event.delete({id:event.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

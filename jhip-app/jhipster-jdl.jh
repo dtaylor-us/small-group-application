@@ -1,0 +1,80 @@
+
+entity GroupAccount {
+	groupName String,
+    groupDesc String,
+    groupRules String,
+    groupEmail String,
+	startDate ZonedDateTime,
+	endDate ZonedDateTime
+}
+entity Media {
+	mediaName String
+}
+
+entity Calendar {
+	calendarName String,
+}
+
+entity MediaFeature {
+	mediaType MediaType,
+    mediaDesc String,
+    createDate ZonedDateTime,
+	dateModified ZonedDateTime
+}
+
+entity Event {
+	eventName String,
+    eventSummary String,
+    address1 String,
+    address2 String,
+    city String,
+    state String,
+    postalCode String,
+    startDate ZonedDateTime,
+	endDate ZonedDateTime
+}
+
+entity Message {
+	author String,
+    subject String,
+    createDate String,
+    content String
+}
+
+entity Mailbox {
+	mailboxName String
+}
+
+entity File {
+	fileType String,
+    file Blob,
+    fileSize String,
+    fileName String
+}
+
+enum MediaType {
+    DOCUMENTS, VIDEO, AUDIO, IMAGES
+}
+
+
+relationship OneToMany {
+	Calendar{calendarEvent} to Event
+}
+
+relationship OneToMany {
+	Media{mailboxCalendar} to MediaFeature
+}
+
+relationship OneToMany {
+	Mailbox{mailboxCalendar} to Message
+}
+
+relationship OneToOne {
+	MediaFeature{mediaFeatureFile} to File
+}
+
+relationship OneToOne {
+	GroupAccount{groupCalendar} to Calendar,
+    GroupAccount{groupMailbox} to Mailbox,
+    GroupAccount{groupMedia} to Media
+}

@@ -1,0 +1,22 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "mailboxCalendar",
+            "otherEntityName": "mediaFeature",
+            "otherEntityRelationshipName": "media"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "mediaName",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170116092218",
+    "entityTableName": "media",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

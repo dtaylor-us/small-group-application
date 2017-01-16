@@ -1,0 +1,59 @@
+
+<div>
+    <h2><span>Event</span> {{vm.event.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Event Name</span></dt>
+        <dd>
+            <span>{{vm.event.eventName}}</span>
+        </dd>
+        <dt><span>Event Summary</span></dt>
+        <dd>
+            <span>{{vm.event.eventSummary}}</span>
+        </dd>
+        <dt><span>Address 1</span></dt>
+        <dd>
+            <span>{{vm.event.address1}}</span>
+        </dd>
+        <dt><span>Address 2</span></dt>
+        <dd>
+            <span>{{vm.event.address2}}</span>
+        </dd>
+        <dt><span>City</span></dt>
+        <dd>
+            <span>{{vm.event.city}}</span>
+        </dd>
+        <dt><span>State</span></dt>
+        <dd>
+            <span>{{vm.event.state}}</span>
+        </dd>
+        <dt><span>Postal Code</span></dt>
+        <dd>
+            <span>{{vm.event.postalCode}}</span>
+        </dd>
+        <dt><span>Start Date</span></dt>
+        <dd>
+            <span>{{vm.event.startDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>End Date</span></dt>
+        <dd>
+            <span>{{vm.event.endDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Calendar</span></dt>
+        <dd>
+            <a ui-sref="calendar-detail({id:vm.event.calendar.id})">{{vm.event.calendar.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="event-detail.edit({id:vm.event.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

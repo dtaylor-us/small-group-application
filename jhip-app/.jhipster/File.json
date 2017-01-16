@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "fileType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "file",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "fileSize",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fileName",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170116092224",
+    "entityTableName": "file",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,66 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFileLabel">Create or edit a File</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.file.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.file.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_fileType">File Type</label>
+            <input type="text" class="form-control" name="fileType" id="field_fileType"
+                    ng-model="vm.file.fileType"
+                     />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setFile($file, vm.file)">
+            <label class="control-label" for="field_file">File</label>
+            <div>
+                <div ng-if="vm.file.file" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.file.fileContentType, vm.file.file)">open</a><br>
+                    <span class="pull-left">{{vm.file.fileContentType}}, {{vm.byteSize(vm.file.file)}}</span>
+                    <button type="button" ng-click="vm.file.file=null;vm.file.fileContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setFile($file, vm.file)">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="file" id="field_file"
+                    ng-model="vm.file.file"
+                     />
+            <input type="hidden" class="form-control" name="fileContentType" id="field_fileContentType"
+                    ng-model="vm.file.fileContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_fileSize">File Size</label>
+            <input type="text" class="form-control" name="fileSize" id="field_fileSize"
+                    ng-model="vm.file.fileSize"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_fileName">File Name</label>
+            <input type="text" class="form-control" name="fileName" id="field_fileName"
+                    ng-model="vm.file.fileName"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

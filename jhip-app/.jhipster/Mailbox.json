@@ -1,0 +1,22 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "mailboxCalendar",
+            "otherEntityName": "message",
+            "otherEntityRelationshipName": "mailbox"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "mailboxName",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170116092223",
+    "entityTableName": "mailbox",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

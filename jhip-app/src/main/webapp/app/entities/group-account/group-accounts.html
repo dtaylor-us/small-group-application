@@ -1,0 +1,78 @@
+<div>
+    <h2>Group Accounts</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="group-account.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Group Account
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Group Name</span></th>
+                    <th><span>Group Desc</span></th>
+                    <th><span>Group Rules</span></th>
+                    <th><span>Group Email</span></th>
+                    <th><span>Start Date</span></th>
+                    <th><span>End Date</span></th>
+                    <th><span>Group Calendar</span></th>
+                    <th><span>Group Mailbox</span></th>
+                    <th><span>Group Media</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="groupAccount in vm.groupAccounts track by groupAccount.id">
+                    <td><a ui-sref="group-account-detail({id:groupAccount.id})">{{groupAccount.id}}</a></td>
+                    <td>{{groupAccount.groupName}}</td>
+                    <td>{{groupAccount.groupDesc}}</td>
+                    <td>{{groupAccount.groupRules}}</td>
+                    <td>{{groupAccount.groupEmail}}</td>
+                    <td>{{groupAccount.startDate | date:'medium'}}</td>
+                    <td>{{groupAccount.endDate | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="calendar-detail({id:groupAccount.groupCalendar.id})">{{groupAccount.groupCalendar.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="mailbox-detail({id:groupAccount.groupMailbox.id})">{{groupAccount.groupMailbox.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="media-detail({id:groupAccount.groupMedia.id})">{{groupAccount.groupMedia.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="group-account-detail({id:groupAccount.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="group-account.edit({id:groupAccount.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="group-account.delete({id:groupAccount.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

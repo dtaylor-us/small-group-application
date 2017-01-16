@@ -1,0 +1,60 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "groupCalendar",
+            "otherEntityName": "calendar",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "groupAccount"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "groupMailbox",
+            "otherEntityName": "mailbox",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "groupAccount"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "groupMedia",
+            "otherEntityName": "media",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "groupAccount"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "groupName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "groupDesc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "groupRules",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "groupEmail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20170116092217",
+    "entityTableName": "group_account",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

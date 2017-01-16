@@ -1,0 +1,55 @@
+
+<div>
+    <h2><span>Group Account</span> {{vm.groupAccount.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Group Name</span></dt>
+        <dd>
+            <span>{{vm.groupAccount.groupName}}</span>
+        </dd>
+        <dt><span>Group Desc</span></dt>
+        <dd>
+            <span>{{vm.groupAccount.groupDesc}}</span>
+        </dd>
+        <dt><span>Group Rules</span></dt>
+        <dd>
+            <span>{{vm.groupAccount.groupRules}}</span>
+        </dd>
+        <dt><span>Group Email</span></dt>
+        <dd>
+            <span>{{vm.groupAccount.groupEmail}}</span>
+        </dd>
+        <dt><span>Start Date</span></dt>
+        <dd>
+            <span>{{vm.groupAccount.startDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>End Date</span></dt>
+        <dd>
+            <span>{{vm.groupAccount.endDate | date:'medium'}}</span>
+        </dd>
+        <dt><span>Group Calendar</span></dt>
+        <dd>
+            <a ui-sref="calendar-detail({id:vm.groupAccount.groupCalendar.id})">{{vm.groupAccount.groupCalendar.id}}</a>
+        </dd>
+        <dt><span>Group Mailbox</span></dt>
+        <dd>
+            <a ui-sref="mailbox-detail({id:vm.groupAccount.groupMailbox.id})">{{vm.groupAccount.groupMailbox.id}}</a>
+        </dd>
+        <dt><span>Group Media</span></dt>
+        <dd>
+            <a ui-sref="media-detail({id:vm.groupAccount.groupMedia.id})">{{vm.groupAccount.groupMedia.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="group-account-detail.edit({id:vm.groupAccount.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

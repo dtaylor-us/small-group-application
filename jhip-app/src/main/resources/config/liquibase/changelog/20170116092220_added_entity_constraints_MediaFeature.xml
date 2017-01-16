@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity MediaFeature.
+    -->
+    <changeSet id="20170116092220-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="media_id"
+                                 baseTableName="media_feature"
+                                 constraintName="fk_media_feature_media_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="media"/>
+
+        <addForeignKeyConstraint baseColumnNames="media_feature_file_id"
+                                 baseTableName="media_feature"
+                                 constraintName="fk_media_feature_media_feature_file_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="file"/>
+
+    </changeSet>
+</databaseChangeLog>

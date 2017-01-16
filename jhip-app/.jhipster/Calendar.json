@@ -1,0 +1,22 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "calendarEvent",
+            "otherEntityName": "event",
+            "otherEntityRelationshipName": "calendar"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "calendarName",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170116092219",
+    "entityTableName": "calendar",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}
